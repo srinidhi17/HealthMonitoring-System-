@@ -1,0 +1,39 @@
+table.table {
+            display: table;
+            width: 100%;
+
+        }
+        
+        table.table thead,
+        table.table tbody {
+            float: left;
+            width: 100%;
+        }
+        
+        table.table tbody {
+            overflow: auto;
+            height: 350px;
+        }
+        
+        table.table tr {
+            width: 100%;
+            display: table;
+            text-align: left;
+        }
+        
+        
+        table.table td {
+            width: 15%;
+            font-size: 15px;
+            font-weight: 2px;
+
+        }
+        
+        table.table th{
+             width: 14%;
+            font-size: 17px;
+        }
+
+        body{
+            background-color: #d9d9d9;
+        } 

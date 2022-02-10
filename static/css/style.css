@@ -1,0 +1,249 @@
+body{
+	font-size: 16px;
+	color: #222;
+	background-color: #FFFFF0;
+	font-family: 'Oxygen', serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+/****Header*****/
+#header-nav{
+	background-color: #6B8E23;
+	border-radius: 0;
+	border: 0;
+	margin-top: -30px;
+}
+
+h2{
+  margin-bottom: 10px;
+  text-align: center;
+  color: #222;
+  font-size: 20px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-weight: bold;
+}
+
+.navbar-brand {
+  padding-top: 25px;
+}
+
+.navbar-brand h1 { /* Topic name */
+  font-family: 'Lora', serif;
+  color: #951C49;
+  font-size: 1.0em;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #222;
+  margin-top: 20px;
+  margin-bottom: 0;
+  line-height: .75;
+}
+.navbar-brand a:hover, .navbar-brand a:focus {
+  text-decoration: none;
+}
+.navbar-brand p { /*  */
+  color: #000;
+  text-transform: uppercase;
+  font-size: .9em;
+  margin-top: 15px;
+}
+.navbar-brand p span { /*professorship */
+  vertical-align: middle;
+
+}
+
+ #btn > a {
+    font-size: 1.0em;
+    font-weight: bold;
+    display: block;
+    margin: 0 20px;
+    padding: 10px;
+    align-self: center;
+    border: 2px solid #fff;
+    background-color: #6B8E23;
+    color: #951c49;
+  }
+
+ .row{
+  margin: 20px;
+}
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    height: auto;
+  }
+
+
+
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: scroll;
+}
+
+.dropdown .dropbtn .dropdoen-menu {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: relative;
+  background-color: #f9f9f9;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content .header {
+  background: red;
+  padding: 16px;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  background-color: #ccc;
+  height: 250px;
+}
+
+.column a {
+  float: none;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.column a:hover {
+  background-color: #ddd;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.btn btn-secondary dropdown-toggle {
+	  padding:16px;
+	  position: relative;
+	  text-decoration: none;
+	  font-size: 20px;
+	  color: #818181;
+	  display: block;
+	  border: none;
+	  background: #fff;
+	  width: 100%;
+	  text-align: left;
+	  cursor: pointer;
+	  outline: none;
+}
+
+.btn btn-secondary dropdown-toggle:hover {
+  	  color: #222;
+}
+
+.fa-caret-down {
+	  float: right;
+	  padding-right: 8px;
+}
+.dropdown-menu {
+	  display: none;
+	  background-color: #fff;
+	  padding-left: 8px;
+	  box-shadow: -1.095px 6.914px 12.96px 3.04px rgba(51, 51, 51, 0.27);
+	  height:100px;
+	  max-height:100px;
+	  overflow-y: scroll;
+}
+.scrollable-menu {
+    height: auto;
+    max-height: 20px;
+    overflow-x: hidden;
+}
+
+
+

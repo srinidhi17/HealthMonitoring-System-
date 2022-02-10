@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<head>
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+
+<title>Smart Audio Home</title>
+<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+<link rel="stylesheet" href="./static/lib/css/keen-dashboards.css">
+<link rel="stylesheet" href="./static/lib/css/dc.css">
+<link rel="stylesheet" href="./static/css/custom.css">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oxygen">
+<!-- Include Date Range Picker -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+
+<style>
+	.inside
+	{
+		font-size:15px;
+		font-weight: bold;
+		fill:white;
+	}
+	.label
+	{
+		font-size:15px;
+		font-weight: bold;
+		
+	}
+
+
+	.bar {
+	  fill: steelblue;
+	}
+	.glyphicon
+	{
+	float:right;
+
+	}
+	.bar:hover {
+	  fill: brown;pp
+	}
+
+	.axis {
+	  font: 10px sans-serif;
+	}
+
+	.axis path,
+	.axis line {
+	  fill: none;
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+	}
+
+	.x.axis path {
+	  display: none;
+	}
+	.d3-tip {
+	  line-height: 1;
+	  font-weight: bold;
+	  padding: 12px;
+	  background: rgba(0, 0, 0, 0.8);
+	  color: #fff;
+	  border-radius: 2px;
+	}
+
+	/* Creates a small triangle extender for the tooltip */
+	.d3-tip:after {
+	  box-sizing: border-box;
+	  display: inline;
+	  font-size: 10px;
+	  width: 100%;
+	  line-height: 1;
+	  color: rgba(0, 0, 0, 0.8);
+	  content: "\25BC";
+	  position: absolute;
+	  text-align: center;
+	}
+
+	/* Style northward tooltips differently */
+	.d3-tip.n:after {
+	  margin: -1px 0 0 0;
+	  top: 100%;
+	  left: 0;
+	}
+
+</style>
+<!-- Create a div where the graph will take place -->
+<!--<div id="pie_chart"></div> -->
+
+
+<body>
+ <header>
+  <nav id="header-nav" class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="row">
+        <a class="navbar-brand d-none d-sm-block"href="demo1.html" >
+                    <img src= "../static/images/TucLogo.PNG" width="100" height="100" alt="" style="margin-left: 0px"> 
+        </a>
+          <div class="navbar-brand">
+            <a href="#"><h1>DEEP LEARNING DRIVEN IOT IMPLEMENTATION FOR SMART HOME AUDIO CLASSIFICATION</h1></a>
+            <p>
+              <img src="../static/images/LOGOMC.png" width="50" height="50" alt="Media Compuuting">
+              <span>Junior Professur Media Computing</span>
+            </p>
+          </div>  
+       </div> 
+    </div>
+   </nav>
+ </header>
+<h2>Occurrence of Acoustic Events</h2>
+<div style="position: absolute;top:50px, bottom: 0; right: 0px; text-align:right;">
+<iframe src="http://free.timeanddate.com/clock/i7nunt3k/n48/fn6/fs16/fc9ff/tc000/ftb/bas2/bat1/bacfff/pa8/tt0/tw1/th1/ta1/tb4" frameborder="0" width="254" height="58"></iframe>
+</div>
+
+ <div class="dropdown">
+  <button class="dropbtn">Audio Classes</button>
+  <div class="dropdown-content">
+   <div class="btn-group dropright">
+    <div type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Animals</div>
+       <div class="dropdown-menu scrollable-menu">
+		<a href="demo.html"><span>Bee</span></a>
+		<a href="#">Cat</a>
+		<a href="#">Chirping Birds</a>
+		<a href="#">Dog</a>
+		<a href="#">Hen</a>
+		<a href="#">Rooster</a>
+
+      </div>
+    </div>
+
+
+     <div class="btn-group dropright">
+      <div type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">External Events</div>
+	<div class="dropdown-menu scrollable-menu">	
+	 	<a href="#">Siren</a>
+		<a href="#">Wind</a>
+	 </div>
+     </div>
+
+
+     <div class="btn-group dropright">
+      <div type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Human</div>
+	<div class="dropdown-menu scrollable-menu">	
+	 	<a href="sneezing.html">Baby Crying</a>
+		<a href="#">Clapping</a>
+		<div class="btn-group dropright">
+      			<div type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Coughing</div>
+				<div class="dropdown-menu scrollable-menu">
+					<a href="#">Asthma Cough</a>
+					<a href="#">Covid Cough</a>
+					<a href="#">Healthy Cough</a>
+				</div>
+		</div>
+		<a href="#">Crying</a>
+		<a href="#">Drinking</a>
+		<a href="#">Female Speaking</a>
+		<a href="#">Help</a>
+		<a href="#">Kissing</a>
+		<a href="#">Laughing</a>
+		<a href="#">Man Speaking</a>
+		<a href="#">Silence</a>
+		<a href="#">Sneezing</a>
+		<a href="#">Snoaring</a>
+		<a href="#">Tooth Brush</a>
+		<a href="#">Trampler</a>
+		<a href="#">Walk Footsteps</a>
+		<a href="#">Whimper</a>
+		<a href="#">Whistling</a>
+      </div>
+     </div>
+
+
+     <div class="btn-group dropright">
+      <div type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Interior Domestic</div>
+	<div class="dropdown-menu scrollable-menu">
+	 	<a href="#">Alarm Clock</a>
+		<a href="#">Blending</a>
+		<a href="#">Breaking</a>
+		<a href="#">Cupboard</a>
+		<a href="#">Displaying Furniture</a>
+		<a href="#">Door bell</a>
+		<a href="#">Drill</a>
+		<a href="#">Drag on ground</a>
+		<a href="#">Glass</a>
+		<a href="#">Hair Dryer</a>
+		<a href="#">Hit</a>
+		<a href="#">Lighting</a>
+		<a href="#">Metal on metalr</a>
+		<a href="#">Jack Hammer</a>
+		<a href="#">Ringtone</a>
+		<a href="#">Stapler</a>
+		<a href="#">Toilet Flush</a>
+		<a href="#">Vaccum Cleaner</a>
+		<a href="#">Vandalism</a>
+		<a href="#">Water</a>
+	</div>
+     </div>
+
+
+     <div class="btn-group dropright">
+      <div type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Music</div>
+	<div class="dropdown-menu scrollable-menu">	
+	 	<a href="#">Clarinet</a>
+		<a href="#">Drum</a>
+		<a href="#">Flute</a>
+		<a href="#">Guitar</a>
+		<a href="#">Hi-Hat</a>
+		<a href="#">Sitar</a>
+      </div>
+     </div>
+
+  </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+
+
+<!--<div align ="center">
+		From : <input type="datetime-local" name="field1" id="field1" />
+		To :   <input type="datetime-local" name="field2" id="field2" />
+		<input type="button" onclick="render(true)" value="Submit" />
+</div>-->
+<div align = "centre">
+<div class = "container-section">
+ <div class = "row">
+  <div class = "col s12 l16 push-10">
+  <div id="birthdaytime"> 
+	From: <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+	To: <input type="datetime-local" id="birthdaytime" name="birthdaytime2">
+	<input type="button" value="Visualize">
+  </div>
+  </div>
+ </div>
+</div>
+</div>
+        <div id='type-selector-container'>
+            <form id='type-selector'>
+                <input type='radio' name='type-selector' id='rb-1' value='60%' checked />
+                <label for='rb-1'>60%</label>
+
+                <input type='radio' name='type-selector' id='rb-2' value='70%' />
+                <label for='rb-2'>70%</label>
+
+                <input type='radio' name='type-selector' id='rb-3' value='80%' />
+                <label for='rb-3'>80%</label>
+
+                <input type='radio' name='type-selector' id='rb-2' value='70%' />
+                <label for='rb-4'>90%</label>
+
+                <input type='radio' name='type-selector' id='rb-3' value='80%' />
+                <label for='rb-5'>100%</label>
+            </form>
+        </div>
+  <div class="container-fluid">
+
+    <div class="row">
+
+        <div class="row">
+          <!-- Time Chart --> 
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Occurence Observation for 24 hours
+              </div>
+              <div class="chart-stage">
+                <div id="time-chart"></div>
+              </div>
+            </div>
+   	   
+          <!-- Time Chart --> 
+
+          <!-- Top 5 Chart --> 
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Top 5 Classes Occurence for 24 hours
+              </div>
+              <div class="chart-stage">
+                <div id="top-5-chart"></div>
+              </div>
+            </div>
+   
+          <!-- Top 5 Chart --> 
+   
+   
+     </div>
+  </div>
+ </div>
+
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>-->
+<!--<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../static/lib/js/jquery.min.js"></script>
+<script src="../static/js/main.js" type='text/javascript'></script>
+<script src = "../static/js/demo1.js" type='text/javascript'></script>
+<script src="../static/lib/js/bootstrap.min.js"></script>
+<script src="https://dc-js.github.io/dc.js/js/crossfilter.js"></script>
+<script src="https://dc-js.github.io/dc.js/js/d3.js"></script>
+<!--<script src="https://dc-js.github.io/dc.js/js/dc.js"></script>-->
+
+<button type="submit" class="btn btn-primary" value="submit" id="redrawbutton">Redraw Original Bar Chart</button>
+
+
+</body>
+
+
+</html>
+

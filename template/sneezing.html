@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<!--<script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Audio Home</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oxygen">
+<style type="text/css">
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body {
+    width: 100%;
+    height: 100%;
+    font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #fff;
+    background-color: #6B8E23;
+}
+path.color0 {
+    fill: #000;
+}
+path.color1 {
+    fill: rgba(255,255,255,.3);
+}
+text {
+    font-size: 7em;
+    font-weight: 400;
+    line-height: 16em;
+    fill: #000;
+}
+
+path { 
+  stroke: steelblue;
+	stroke-width: 2;
+	fill: none;
+}
+div{
+  fill:#000;
+}
+
+.axis path,
+.axis line {
+	fill: none;
+	stroke: grey;
+	stroke-width: 1;
+	shape-rendering: crispEdges;
+}
+
+</style>
+<body>
+ <header>
+  <nav id="header-nav" class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="row">
+        <a class="navbar-brand d-none d-sm-block"href="index.html" >
+                    <img src= "images/TucLogo.PNG" width="120" height="120" alt="" style="margin-left: 0px"> 
+        </a>
+          <div class="navbar-brand">
+            <a href="index.html"><h1>DEEP LEARNING DRIVEN IOT IMPLEMENTATION FOR SMART HOME AUDIO CLASSIFICATION</h1></a>
+            <p>
+              <img src="images/LOGOMC.png" width="50" height="50" alt="Media Compuuting">
+              <span>Junior Professur Media Computing</span>
+            </p>
+          </div>  
+       </div> 
+   	</div>
+   </nav>
+</header>
+
+</head>
+ <div id="sneezing">
+               <p>
+              <a><img src="snoring.jpg" width="600" height="500" >
+	      <span> </span>
+              </a>
+              </p>
+ <div><span><p  style="text-align:left;font-size:20px;margin-left: 50px;margin-right: 1000px">Total number of occurrences of Snoring :31679 times</p></span></div>
+ </div>
+ 
+<body>
+
+<script type="text/javascript">
+// set the dimensions and margins of the graph
+var margin = {top: 30, right: 30, bottom: 70, left: 60},
+    width = 600 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+
+var duration = 1500,
+    transition = 200,
+    percent = 36.98,
+    width = 450 - 20,
+    height = 450 - 20;
+
+var dataset = {
+            lower: calcPercent(0),
+            upper: calcPercent(percent)
+        },
+        radius = Math.min(width, height) / 3,
+        pie = d3.layout.pie().sort(null),
+        format = d3.format(".0%");
+
+var arc = d3.svg.arc()
+        .innerRadius(radius * .8)
+        .outerRadius(radius);
+
+var svg1 = d3.select("#sneezing").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+var path = svg1.selectAll("path")
+                .data(pie(dataset.lower))
+                .enter().append("path")
+                .attr("class", function (d, i) {
+                    return "color" + i
+                })
+                .attr("d", arc)
+                .each(function (d) {
+                    this._current = d;
+                });
+
+var text = svg1.append("text")
+        .attr("text-anchor", "middle")
+        .attr("dy", ".3em");
+
+var progress = 0;
+
+var timeout = setTimeout(function () {
+    clearTimeout(timeout);
+    path = path.data(pie(dataset.upper));
+    path.transition().duration(duration).attrTween("d", function (a) {
+        var i = d3.interpolate(this._current, a);
+        var i2 = d3.interpolate(progress, percent)
+        this._current = i(0);
+        return function (t) {
+            text.text(format(i2(t) / 100));
+            return arc(i(t));
+        };
+    });
+}, 200);
+
+function calcPercent(percent) {
+    return [percent, 100 - percent];
+};
+</script>
+</body>
+
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</html>
